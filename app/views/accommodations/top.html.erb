@@ -1,10 +1,5 @@
 <div class="container">
-  <p style="color: green"><%= notice %></p>
-
-  <h1>Accommodations</h1>
-  <p><%= link_to 'top rated accommodations', top_accommodations_path %></p>
-  <hr>
-
+  <h1>5 Stars Accommodations</h1>
   <div id="accommodations">
     <% @accommodations.each do |accommodation| %>
       <%= render accommodation %>
@@ -13,6 +8,4 @@
       </p>
     <% end %>
   </div>
-
-  <%= link_to "New accommodation", new_accommodation_path %>
 </div>

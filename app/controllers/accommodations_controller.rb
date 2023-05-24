@@ -1,6 +1,10 @@
 class AccommodationsController < ApplicationController
   before_action :set_accommodation, only: %i[ show edit update destroy ]
 
+  def top
+    @accommodations = Accommodation.where(rating: 5)
+  end
+
   # GET /accommodations or /accommodations.json
   def index
     @accommodations = Accommodation.all
