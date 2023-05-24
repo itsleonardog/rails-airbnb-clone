@@ -2,6 +2,22 @@
 
 <%= render @accommodation %>
 
+<p><strong>Reviews</strong></p>
+<p><%= link_to 'add review', new_accommodation_review_path(@accommodation) %></p>
+<ul class="list-group">
+  <% @accommodation.reviews.each do |review| %>
+    <li class="list-group-item">
+      <%= review.content %>
+      <%= link_to "Delete",
+        review_path(review),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+      %>
+    </li>
+  <% end %>
+</ul>
+
+<br>
+
 <div>
   <%= link_to "Edit this accommodation", edit_accommodation_path(@accommodation) %> |
   <%= link_to "Back to accommodations", accommodations_path %>
