@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :accommodations
+  resources :accommodations do
+    collection do
+      get :top
+    end
+  end
 
   root to: "pages#home"
   get '/about', to: 'pages#about'
