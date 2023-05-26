@@ -1,16 +1,29 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1530258422663-6749b47598fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1795&q=80);">
   <div class="container">
     <% if user_signed_in? %>
-      <h1>Hi, <%= current_user.first_name %>!</h1>
-    <% end %>
-    <h1>Welcome to the Airbnb replica!</h1>
-    <p>Choose your stay in over 100 accommodations!</p>
-    <% if user_signed_in? %>
-      <div>
-        <%= link_to "Accommodations", accommodations_path, class: "btn btn-flat" %>
-      </div>
+      <h1>Welcome, <%= current_user.first_name %>!</h1>
+      <p>Scroll down, and click on the option that most suits your visit in this website!</p>
     <% else %>
-      <!-- show sign in button -->
+      <h1>Welcome!</h1>
+      <p>Log in or create an account to see more options.</p>
+      <%= link_to "Login", new_user_session_path, class: "btn btn-flat" %>
     <% end %>
   </div>
 </div>
+<% if user_signed_in? %>
+  <div class="container" style="padding-top: 30px; padding-bottom: 30px;">
+    <div class="cards">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1504624720567-64a41aa25d70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1776&q=80)">
+        Accommodations
+      </div>
+
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80)">
+        Best-rated
+      </div>
+
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1554412655-a39393b82e65?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80)">
+        Create
+      </div>
+    </div>
+  </div>
+<% end %>
