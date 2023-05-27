@@ -1,3 +1,4 @@
+// homepage cards action
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -22,6 +23,42 @@
 .custom-link {
   cursor: pointer;
 }
+
+// accommodations cards
+.card-accommodation {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.card-accommodation > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-accommodation h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-accommodation p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-accommodation .card-accommodation-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
