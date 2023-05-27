@@ -4,7 +4,7 @@
   grid-gap: 16px;
 }
 
-.card-category {
+.card-action {
   background-size: cover;
   background-position: center;
   height: 180px;
@@ -19,6 +19,9 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+.custom-link {
+  cursor: pointer;
+}
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
