@@ -69,6 +69,6 @@ class AccommodationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def accommodation_params
-      params.require(:accommodation).permit(:name, :address, :rating)
+      params.require(:accommodation).permit(:name, :address, :rating, :photo)
     end
 end
