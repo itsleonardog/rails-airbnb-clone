@@ -1,19 +1,25 @@
 <div class="container">
-
   <div id="<%= dom_id accommodation %>">
+
+    <% if @accommodation.photo.attached? %>
+      <%= cl_image_tag @accommodation.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+      <p>No photo available</p>
+    <% end %>
+
     <p>
       <strong>Name:</strong>
-      <%= accommodation.name %>
+      <%= @accommodation.name %>
     </p>
 
     <p>
       <strong>Address:</strong>
-      <%= accommodation.address %>
+      <%= @accommodation.address %>
     </p>
 
     <p>
       <strong>Rating:</strong>
-      <%= accommodation.rating %>/5
+      <%= @accommodation.rating %>/5
     </p>
   </div>
 </div>
