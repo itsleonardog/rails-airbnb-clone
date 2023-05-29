@@ -2,19 +2,11 @@
   <p style="color: green"><%= notice %></p>
 
   <h1>Accommodations</h1>
-  <p><%= link_to "New accommodation", new_accommodation_path %></p>
-  <p><%= link_to 'Top-rated accommodations', top_accommodations_path %></p>
+  <p>Browse amongst all of our accommodations, see all the 5-star-rated, or list your place!</p>
+  <%= link_to "Create", new_accommodation_path, class: "btn btn-outline-secondary" %>
+  <%= link_to 'Top-rated', top_accommodations_path, class: "btn btn-outline-secondary" %>
   <hr>
-<!--
-  <div id="accommodations">
-    <% @accommodations.each do |accommodation| %>
-      <%= render accommodation %>
-      <p>
-        <%= link_to "Show this accommodation", accommodation %>
-      </p>
-    <% end %>
-  </div>
--->
+
   <div id="accommodations">
     <div class="cards">
       <% @accommodations.each do |accommodation| %>
