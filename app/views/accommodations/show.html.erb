@@ -4,7 +4,7 @@
   <%= render @accommodation %>
 
   <p><strong>Reviews</strong></p>
-  <p><%= link_to 'add review', new_accommodation_review_path(@accommodation) %></p>
+  <p><%= link_to 'add review', new_accommodation_review_path(@accommodation), class:"btn btn-outline-secondary" %></p>
   <ul class="list-group">
     <% @accommodation.reviews.each do |review| %>
       <li class="list-group-item">
@@ -20,9 +20,10 @@
   <br>
 
   <div>
-    <%= link_to "Edit this accommodation", edit_accommodation_path(@accommodation) %> |
-    <%= link_to "Back to accommodations", accommodations_path %>
-
-    <%= button_to "Destroy this accommodation", @accommodation, method: :delete %>
+    <%= link_to "Edit", edit_accommodation_path(@accommodation), class:"btn btn-outline-secondary" %>
+    <%= link_to "Back", accommodations_path, class:"btn btn-outline-secondary" %>
+  </div>
+  <div style="margin-top: 10px">
+    <%= button_to "Destroy", @accommodation, method: :delete, class:"btn btn-outline-secondary" %>
   </div>
 </div>
