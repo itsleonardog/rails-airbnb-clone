@@ -1,10 +1,8 @@
 <div class="container">
   <div id="<%= dom_id accommodation %>">
 
-    <% if @accommodation.photo.attached? %>
-      <%= cl_image_tag @accommodation.photo.key, height: 300, width: 400, crop: :fill %>
-    <% else %>
-      <p>No photo available</p>
+    <% @accommodation.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
     <% end %>
 
     <p>
