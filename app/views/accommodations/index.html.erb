@@ -11,7 +11,7 @@
     <div class="cards">
       <% @accommodations.each do |accommodation| %>
         <div class="card-accommodation" onclick="window.location.href='<%= accommodation_path(accommodation) %>'">
-          <img src="https://images.unsplash.com/photo-1632323187625-7a4e4414338e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80" />
+          <img src="<%= accommodation.image_url_string %>" />
           <div class="card-accommodation-infos">
             <div>
               <h2><%= accommodation.name %></h2>
@@ -25,5 +25,4 @@
       <% end %>
     </div>
   </div>
-
 </div>
