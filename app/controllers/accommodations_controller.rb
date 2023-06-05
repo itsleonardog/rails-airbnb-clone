@@ -9,6 +9,13 @@ class AccommodationsController < ApplicationController
   # GET /accommodations or /accommodations.json
   def index
     @accommodations = policy_scope(Accommodation).all
+    # The `geocoded` scope filters only flats with coordinates
+    @markers = @accommodations.geocoded.map do |accommodation|
+      {
+        lat: accommodation.latitude,
+        lng: accommodation.longitude
+      }
+    end
   end
 
   # GET /accommodations/1 or /accommodations/1.json
@@ -70,13 +77,13 @@ class AccommodationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_accommodation
-      @accommodation = Accommodation.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_accommodation
+    @accommodation = Accommodation.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def accommodation_params
-      params.require(:accommodation).permit(:name, :address, :rating, photos: [])
-    end
+  # Only allow a list of trusted parameters through.
+  def accommodation_params
+    params.require(:accommodation).permit(:name, :address, :rating, photos: [])
+  end
 end
