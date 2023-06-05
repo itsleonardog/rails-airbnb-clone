@@ -11,9 +11,7 @@ export default class extends Controller {
     mapboxgl.accessToken = this.apiKeyValue;
     this.map = new mapboxgl.Map({
       container: this.element, // container ID
-      style: 'mapbox://styles/mapbox/streets-v12',
-      center: [0, 0],
-      zoom: 12
+      style: 'mapbox://styles/mapbox/streets-v12'
     });
 
     this.#addMarkersToMap();
@@ -25,8 +23,6 @@ export default class extends Controller {
       new mapboxgl.Marker()
       .setLngLat([ marker.lng, marker.lat ])
       .addTo(this.map);
-
-      console.log("Marker:", mapboxMarker);
     })
   }
 
