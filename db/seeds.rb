@@ -9,8 +9,14 @@
 puts 'Cleaning database...'
 Accommodation.destroy_all
 
-puts 'Creating accommodations...'
+puts 'Creating users...'
+user = User.find_or_create_by!(email: 'leonardog9420@gmail.com') do |u|
+  u.password = '123456'
+  u.first_name = 'Leonardo'
+  u.last_name = 'Genzolini'
+end
 
+puts 'Creating accommodations...'
 DEFAULT_IMAGE_URLS = [
   'https://plus.unsplash.com/premium_photo-1685133855557-312db44ef398?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80',
   'https://images.unsplash.com/photo-1487695652027-48e475bfa86f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80',
@@ -64,18 +70,106 @@ DEFAULT_IMAGE_URLS = [
   'https://images.unsplash.com/photo-1530734218972-25a9391ccd8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80'
 ]
 
-50.times do
-  accommodation = Accommodation.create(
-    name: "Apartment in #{Faker::Address.city}",
-    address: Faker::Address.full_address,
-    rating: rand(1..5),
-    default_image_url: DEFAULT_IMAGE_URLS.sample
-  )
+accommodation = Accommodation.create!(
+  name: "Accommodation in #{Faker::Address.city}",
+  address: "Tokyo",
+  rating: rand(1..5),
+  default_image_url: DEFAULT_IMAGE_URLS.sample,
+  user_id: user.id
+)
+puts "Accommodation with id: #{accommodation.id} has been created"
 
-  image_url = DEFAULT_IMAGE_URLS.sample
-  accommodation.photos.attach(io: URI.open(image_url), filename: File.basename(URI.parse(image_url).path), content_type: 'image/jpeg')
+accommodation = Accommodation.create!(
+  name: "Accommodation in #{Faker::Address.city}",
+  address: "Osaka",
+  rating: rand(1..5),
+  default_image_url: DEFAULT_IMAGE_URLS.sample,
+  user_id: user.id
+)
+puts "Accommodation with id: #{accommodation.id} has been created"
 
-  puts "Accommodation with id: #{accommodation.id} has been created"
-end
+accommodation = Accommodation.create!(
+  name: "Accommodation in #{Faker::Address.city}",
+  address: "Perugia",
+  rating: rand(1..5),
+  default_image_url: DEFAULT_IMAGE_URLS.sample,
+  user_id: user.id
+)
+puts "Accommodation with id: #{accommodation.id} has been created"
+
+accommodation = Accommodation.create!(
+  name: "Accommodation in #{Faker::Address.city}",
+  address: "Lugano",
+  rating: rand(1..5),
+  default_image_url: DEFAULT_IMAGE_URLS.sample,
+  user_id: user.id
+)
+puts "Accommodation with id: #{accommodation.id} has been created"
+
+accommodation = Accommodation.create!(
+  name: "Accommodation in #{Faker::Address.city}",
+  address: "Heidelberg",
+  rating: rand(1..5),
+  default_image_url: DEFAULT_IMAGE_URLS.sample,
+  user_id: user.id
+)
+puts "Accommodation with id: #{accommodation.id} has been created"
+
+accommodation = Accommodation.create!(
+  name: "Accommodation in #{Faker::Address.city}",
+  address: "Torrette di Fano",
+  rating: rand(1..5),
+  default_image_url: DEFAULT_IMAGE_URLS.sample,
+  user_id: user.id
+)
+puts "Accommodation with id: #{accommodation.id} has been created"
+
+accommodation = Accommodation.create!(
+  name: "Accommodation in #{Faker::Address.city}",
+  address: "Tarpon Springs",
+  rating: rand(1..5),
+  default_image_url: DEFAULT_IMAGE_URLS.sample,
+  user_id: user.id
+)
+puts "Accommodation with id: #{accommodation.id} has been created"
+
+accommodation = Accommodation.create!(
+  name: "Accommodation in #{Faker::Address.city}",
+  address: "Milwaukee",
+  rating: rand(1..5),
+  default_image_url: DEFAULT_IMAGE_URLS.sample,
+  user_id: user.id
+)
+puts "Accommodation with id: #{accommodation.id} has been created"
+
+accommodation = Accommodation.create!(
+  name: "Accommodation in #{Faker::Address.city}",
+  address: "Okinawa",
+  rating: rand(1..5),
+  default_image_url: DEFAULT_IMAGE_URLS.sample,
+  user_id: user.id
+)
+puts "Accommodation with id: #{accommodation.id} has been created"
+
+accommodation = Accommodation.create!(
+  name: "Accommodation in #{Faker::Address.city}",
+  address: "Talamone",
+  rating: rand(1..5),
+  default_image_url: DEFAULT_IMAGE_URLS.sample,
+  user_id: user.id
+)
+puts "Accommodation with id: #{accommodation.id} has been created"
+
+accommodation = Accommodation.create!(
+  name: "Accommodation in #{Faker::Address.city}",
+  address: "Albinia",
+  rating: rand(1..5),
+  default_image_url: DEFAULT_IMAGE_URLS.sample,
+  user_id: user.id
+)
+puts "Accommodation with id: #{accommodation.id} has been created"
+
+image_url = DEFAULT_IMAGE_URLS.sample
+accommodation.photos.attach(io: URI.open(image_url), filename: File.basename(URI.parse(image_url).path), content_type: 'image/jpeg')
 
 puts 'Finished!'
